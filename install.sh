@@ -49,7 +49,7 @@ defaults write -g NSScrollAnimationEnabled -bool false
 defaults write -g NSScrollViewRubberbanding -bool false
 defaults write -g NSToolbarFullScreenAnimationDuration -float 0
 defaults write -g NSSplitViewItemSidebarDefaultsToFloatingAppearance -bool false
-defaults write -g NSConvolutionOverride1 -float 10
+defaults write -g NSConvolutionOverride1 -float 20
 desktoppr "$HOME/Wallpapers/jellyfish.jpg"
 
 # Trackpad
