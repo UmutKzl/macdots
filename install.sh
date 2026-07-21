@@ -3,6 +3,9 @@
 # Exit immediately on error
 set -e
 
+# Set dotfile directory
+DOTDIR="${HOME}/Dotfiles"
+
 # Exit if we're not in macOS
 if [[ "$OSTYPE" != "darwin"* ]]; then
   echo "Error: This script is intended to run on macOS only." >&2
@@ -20,13 +23,13 @@ fi
 eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 
 # --- Clone Dotfiles ---
-if [ ! -d "$HOME/Dotfiles" ]; then
-  git clone git@github.com:UmutKzl/macdots.git "$HOME/Dotfiles"
+if [ ! -d "${DOTDIR}" ]; then
+  git clone git@github.com:UmutKzl/macdots.git "${DOTDIR}"
 fi
 
 # --- Stow and Brew ---
 (
-  cd "$HOME/Dotfiles"
+  cd "${DOTDIR}"
   brew bundle
   stow shell nvim ghostty Wallpapers
 )
