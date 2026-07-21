@@ -41,6 +41,7 @@ FORMULA_LIST=(
 CASK_LIST=(
   brave-browser
   ghostty
+  desktoppr
 )
 
 brew install "${FORMULA_LIST[@]}"
@@ -69,6 +70,7 @@ defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 0
 # Finder
 defaults write com.apple.finder AppleShowAllFiles -bool true
 defaults write com.apple.finder DisableAllAnimations -bool true
+defaults write com.apple.WindowManager StandardHideWidgets -int 1
 
 # Mail
 defaults write com.apple.Mail DisableReplyAnimations -bool true
