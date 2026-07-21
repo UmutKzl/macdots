@@ -3,7 +3,7 @@
 # Exit immediately on error
 set -e
 
-# Exit if we're in macOS
+# Exit if we're not in macOS
 if [[ "$OSTYPE" != "darwin"* ]]; then
   echo "Error: This script is intended to run on macOS only." >&2
   exit 1
