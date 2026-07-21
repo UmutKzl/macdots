@@ -47,6 +47,12 @@ CASK_LIST=(
 brew install "${FORMULA_LIST[@]}"
 brew install --cask "${CASK_LIST[@]}"
 
+# --- Stow ---
+(
+  cd "$HOME/Dotfiles"
+  stow shell nvim ghostty Wallpapers
+)
+
 # --- System Defaults ---
 
 # Global Settings
@@ -63,6 +69,7 @@ defaults write -g NSScrollViewRubberbanding -bool false
 defaults write -g NSToolbarFullScreenAnimationDuration -float 0
 defaults write -g NSSplitViewItemSidebarDefaultsToFloatingAppearance -bool false
 defaults write -g NSConvolutionOverride1 -float 10
+desktoppr "$HOME/Wallpapers/jellyfish.jpg"
 
 # Trackpad
 defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 0
@@ -70,6 +77,8 @@ defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 0
 # Finder
 defaults write com.apple.finder AppleShowAllFiles -bool true
 defaults write com.apple.finder DisableAllAnimations -bool true
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
+defaults write com.apple.finder CreateDesktop -bool false
 defaults write com.apple.WindowManager StandardHideWidgets -int 1
 
 # Mail
@@ -105,10 +114,4 @@ defaults write com.apple.dock persistent-apps -array \
   "$(dock_item '/Applications/Ghostty.app')"
 
 # Restart affected apps
-killall Finder Dock 2>/dev/null || true
-
-# --- Stow ---
-(
-  cd "$HOME/Dotfiles"
-  stow shell nvim ghostty
-)
+killall Finder Dock WindowManager 2>/dev/null || true
