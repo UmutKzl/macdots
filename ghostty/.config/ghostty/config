@@ -1,2 +1,3 @@
 theme = Catppuccin Frappe
 background-opacity = 0.9
+macos-titlebar-style = hidden
