@@ -28,6 +28,8 @@ brew "wget"
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
+# Display management tool
+cask "betterdisplay"
 # Web browser focusing on privacy
 cask "brave-browser"
 # Command-line tool to set the desktop picture
