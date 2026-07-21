@@ -24,32 +24,10 @@ if [ ! -d "$HOME/Dotfiles" ]; then
   git clone git@github.com:UmutKzl/macdots.git "$HOME/Dotfiles"
 fi
 
-# --- Install Packages ---
-FORMULA_LIST=(
-  eza
-  fd
-  fzf
-  gnupg
-  npm
-  ripgrep
-  starship
-  stow
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
-
-CASK_LIST=(
-  brave-browser
-  ghostty
-  desktoppr
-)
-
-brew install "${FORMULA_LIST[@]}"
-brew install --cask "${CASK_LIST[@]}"
-
-# --- Stow ---
+# --- Stow and Brew ---
 (
   cd "$HOME/Dotfiles"
+  brew bundle
   stow shell nvim ghostty Wallpapers
 )
 
