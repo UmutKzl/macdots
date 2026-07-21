@@ -38,7 +38,7 @@ fi
 
 # Global Settings
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write NSGlobalDomain AppleShowAllExtensions -bool false
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 defaults write -g com.apple.swipescrolldirection -bool false
 defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
