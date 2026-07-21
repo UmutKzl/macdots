@@ -36,3 +36,5 @@ cask "brave-browser"
 cask "desktoppr"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
+# Menu bar manager
+cask "jordanbaird-ice"
