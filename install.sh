@@ -108,5 +108,5 @@ killall Finder Dock 2>/dev/null || true
 # --- Stow ---
 (
   cd "$HOME/Dotfiles"
-  stow shell
+  stow shell nvim ghostty
 )
