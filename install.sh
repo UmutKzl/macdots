@@ -31,7 +31,7 @@ fi
 (
   cd "${DOTDIR}"
   brew bundle
-  stow shell nvim ghostty Wallpapers
+  stow shell nvim ghostty Wallpapers halloy gpg zellij
 )
 
 # --- System Defaults ---
