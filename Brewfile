@@ -26,6 +26,8 @@ brew "stow"
 brew "tree-sitter-cli"
 # Internet file retriever
 brew "wget"
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
+brew "zellij"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
