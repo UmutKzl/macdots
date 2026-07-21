@@ -6,6 +6,8 @@ brew "fd"
 brew "fzf"
 # GNU compiler collection
 brew "gcc"
+# Blazing fast terminal-ui for git written in rust
+brew "gitui"
 # GNU Privacy Guard (OpenPGP)
 brew "gnupg"
 # Simple terminal UI for git commands
