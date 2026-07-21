@@ -1,0 +1,9 @@
+[servers.Libera]
+nickname = "UmutKzl"
+server = "irc.libera.chat"
+channels = ["#libera", "#macdev"]
+
+[servers.OFTC]
+server = "irc.oftc.net"
+nickname = "UmutKzl"
+channels = ["#asahi", "#asahi-alt", "#asahi-re"]
