@@ -27,72 +27,72 @@ if [ ! -d "${DOTDIR}" ]; then
   git clone git@github.com:UmutKzl/macdots.git "${DOTDIR}"
 fi
 
+# --- Config file ---
+source "${DOTDIR}/CONFIG"
+
 # --- Stow and Brew ---
 (
   cd "${DOTDIR}"
   brew bundle
-  stow shell nvim ghostty Wallpapers halloy gpg zellij
+  stow ${CONFIGS}
 )
 
 # --- System Defaults ---
 
 # Global Settings
-defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+defaults write NSGlobalDomain AppleInterfaceStyle -string "${THEME}"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool false
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 defaults write -g com.apple.swipescrolldirection -bool false
-defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
-defaults write -g NSBrowserColumnAnimationSpeedMultiplier -float 0
-defaults write -g NSDocumentRevisionsWindowTransformAnimation -bool false
-defaults write -g QLPanelAnimationDuration -float 0
-defaults write -g NSScrollAnimationEnabled -bool false
-defaults write -g NSScrollViewRubberbanding -bool false
-defaults write -g NSToolbarFullScreenAnimationDuration -float 0
-defaults write -g NSSplitViewItemSidebarDefaultsToFloatingAppearance -bool false
-defaults write -g NSConvolutionOverride1 -float 20
+defaults write -g NSSplitViewItemSidebarDefaultsToFloatingAppearance -bool ${SIDEBAR_FLOATING}
+defaults write -g NSConvolutionOverride1 -float ${ROUNDED_CORNERS}
+
+if [ "$ANIMATIONS" == "true" ]; then
+  defaults delete -g NSAutomaticWindowAnimationsEnabled || true
+  defaults delete -g NSBrowserColumnAnimationSpeedMultiplier || true
+  defaults delete -g NSDocumentRevisionsWindowTransformAnimation || true
+  defaults delete -g QLPanelAnimationDuration || true
+  defaults delete -g NSScrollAnimationEnabled || true
+  defaults delete -g NSScrollViewRubberbanding || true
+  defaults delete -g NSToolbarFullScreenAnimationDuration || true
+  defaults delete com.apple.finder DisableAllAnimations || true
+  defaults write com.apple.dock autohide-delay -float 0.1
+  defaults write com.apple.dock autohide-time-modifier -float 0.1
+  defaults delete com.apple.dock expose-animation-duration || true
+  defaults delete com.apple.Mail DisableReplyAnimations || true
+  defaults delete com.apple.Mail DisableSendAnimations || true
+else
+  defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
+  defaults write -g NSBrowserColumnAnimationSpeedMultiplier -float 0
+  defaults write -g NSDocumentRevisionsWindowTransformAnimation -bool false
+  defaults write -g QLPanelAnimationDuration -float 0
+  defaults write -g NSScrollAnimationEnabled -bool false
+  defaults write -g NSScrollViewRubberbanding -bool false
+  defaults write -g NSToolbarFullScreenAnimationDuration -float 0
+  defaults write com.apple.finder DisableAllAnimations -bool true
+  defaults write com.apple.dock autohide-delay -float 0
+  defaults write com.apple.dock autohide-time-modifier -float 0
+  defaults write com.apple.dock expose-animation-duration -float 0.1
+  defaults write com.apple.Mail DisableReplyAnimations -bool true
+  defaults write com.apple.Mail DisableSendAnimations -bool true
+fi
+
 desktoppr "$HOME/Wallpapers/jellyfish.jpg"
 
 # Trackpad
-defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 0
+defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int "${TRACKPAD_PRESSURE}"
 
 # Finder
-defaults write com.apple.finder AppleShowAllFiles -bool true
-defaults write com.apple.finder DisableAllAnimations -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool "${HIDDEN_FILES}"
 defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
 defaults write com.apple.finder CreateDesktop -bool false
 defaults write com.apple.WindowManager StandardHideWidgets -int 1
 
-# Mail
-defaults write com.apple.Mail DisableReplyAnimations -bool true
-defaults write com.apple.Mail DisableSendAnimations -bool true
-
-# Brave Browser
-defaults write com.brave.Browser BraveAIChatEnabled -bool false
-defaults write com.brave.Browser BraveAIEnabled -bool false
-defaults write com.brave.Browser BraveChatEnabled -bool false
-defaults write com.brave.Browser BraveLeoEnabled -bool false
-defaults write com.brave.Browser BraveRewardsDisabled -bool true
-defaults write com.brave.Browser BraveVPNDisabled -bool true
-defaults write com.brave.Browser BraveWalletDisabled -bool true
-defaults write com.brave.Browser CryptoWalletEnabled -bool false
-
 # Dock
-dock_item() {
-  printf '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>%s</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>' "$1"
-}
-
-defaults write com.apple.dock autohide -bool true
-defaults write com.apple.dock autohide-delay -float 0
-defaults write com.apple.dock autohide-time-modifier -float 0
-defaults write com.apple.dock expose-animation-duration -float 0.1
-defaults write com.apple.dock show-recents -bool false
-defaults write com.apple.dock springboard-hide-duration -float 0
-defaults write com.apple.dock springboard-page-duration -float 0
-defaults write com.apple.dock springboard-show-duration -float 0
-
-defaults write com.apple.dock persistent-apps -array \
-  "$(dock_item '/Applications/Brave Browser.app')" \
-  "$(dock_item '/Applications/Ghostty.app')"
+defaults write com.apple.dock autohide -bool ${DOCK_AUTOHIDE}
 
 # Restart affected apps
 killall Finder Dock WindowManager 2>/dev/null || true
+
+# Last info
+echo "Hello dear user, I hope this script doesn't have any bugs. If it has, please report it using my GitHub repo's issues tab. Good luck!"

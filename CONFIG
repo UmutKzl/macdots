@@ -1,0 +1,15 @@
+# Configs to stow
+CONFIGS="Wallpapers shell nvim ghostty halloy gpg zellij"
+
+### System Settings ###
+
+THEME="Dark"
+ANIMATIONS=true
+SIDEBAR_FLOATING=false
+ROUNDED_CORNERS=20
+
+HIDDEN_FILES=false
+
+TRACKPAD_PRESSURE=0
+
+DOCK_AUTOHIDE=true
