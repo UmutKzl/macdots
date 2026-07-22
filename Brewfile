@@ -22,6 +22,8 @@ brew "ripgrep"
 brew "starship"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
+# Simplified and community-driven man pages
+brew "tldr"
 # Parser generator tool
 brew "tree-sitter-cli"
 # Internet file retriever
