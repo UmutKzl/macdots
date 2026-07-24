@@ -77,7 +77,7 @@ else
   defaults write com.apple.Mail DisableSendAnimations -bool true
 fi
 
-desktoppr "$HOME/Wallpapers/jellyfish.jpg"
+desktoppr "$HOME/Wallpapers/${WALLPAPER}"
 
 # Trackpad
 defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int "${TRACKPAD_PRESSURE}"
