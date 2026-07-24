@@ -10,6 +10,8 @@ brew "fzf"
 brew "gcc"
 # Blazing fast terminal-ui for git written in rust
 brew "gitui"
+# Passphrase entry dialog utilizing the Assuan protocol
+brew "pinentry"
 # GNU Privacy Guard (OpenPGP)
 brew "gnupg"
 # Simple terminal UI for git commands
@@ -18,6 +20,8 @@ brew "lazygit"
 brew "neovim"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Cross-shell prompt for astronauts
