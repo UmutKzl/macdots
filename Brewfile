@@ -1,3 +1,6 @@
+tap "cloudflare/cloudflare", trusted: true
+# Yet another cross-platform graphical process/system monitor
+brew "bottom"
 # Cloudflare Tunnel client (formerly Argo Tunnel)
 brew "cloudflared"
 # Modern, maintained replacement for ls
