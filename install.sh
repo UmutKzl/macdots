@@ -56,8 +56,8 @@ if [ "$ANIMATIONS" == "true" ]; then
   defaults delete -g NSScrollViewRubberbanding || true
   defaults delete -g NSToolbarFullScreenAnimationDuration || true
   defaults delete com.apple.finder DisableAllAnimations || true
-  defaults write com.apple.dock autohide-delay -float 0.1
-  defaults write com.apple.dock autohide-time-modifier -float 0.1
+  defaults write com.apple.dock autohide-delay -float 0.0
+  defaults write com.apple.dock autohide-time-modifier -float 0.4
   defaults delete com.apple.dock expose-animation-duration || true
   defaults delete com.apple.Mail DisableReplyAnimations || true
   defaults delete com.apple.Mail DisableSendAnimations || true
