@@ -1,3 +1,5 @@
+# Cloudflare Tunnel client (formerly Argo Tunnel)
+brew "cloudflared"
 # Modern, maintained replacement for ls
 brew "eza"
 # Simple, fast and user-friendly alternative to find
