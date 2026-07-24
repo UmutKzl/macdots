@@ -20,6 +20,8 @@ brew "lazygit"
 brew "neovim"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
+# SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
+brew "openvpn"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
 # Search tool like grep and The Silver Searcher
